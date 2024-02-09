@@ -1,0 +1,21 @@
+// Создаем конструктор объекта Person для представления персонажа
+function Person(name, age, health, strength) {
+    this.name = name;
+    this.age = age;
+    this.health = health;
+    this.strength = strength;
+}
+
+// Добавляем метод attack() к прототипу объекта Person
+Person.prototype.attack = function(target) {
+    console.log(this.name + " атакует " + target.name + "!");
+    target.health -= this.strength;
+    console.log(target.name + " получает урон. Здоровье: " + target.health);
+};
+
+// Создаем двух персонажей
+var hero = new Person("Герой", 25, 100, 10);
+var enemy = new Person("Враг", 30, 100, 8);
+
+// Атакуем врага
+hero.attack(enemy);
